@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./db";
+import userRoutes from "./components/user/routes";
 
 dotenv.config();
 
@@ -22,6 +23,8 @@ app.use((req, _res, next) => {
 app.get("/", (_req, res) => {
     res.json({ message: "API de Películas funcionando" });
 });
+
+app.use("/api/auth", userRoutes);
 
 connectDB();
 
