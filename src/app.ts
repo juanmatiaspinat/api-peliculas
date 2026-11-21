@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./db";
 import userRoutes from "./components/user/routes";
+import movieRoutes from "./components/movie/routes";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/auth", userRoutes);
+app.use("/api/movies", movieRoutes);
 
 connectDB();
 
